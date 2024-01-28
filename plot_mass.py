@@ -4,8 +4,8 @@ from data_process import fig_process
 from params import *
 
 def main()->None:
-    data_path = 'C:/uci/p121w/database'
-    output_path = 'C:/uci/p121w/figs'
+    data_path = 'C:/uci/p121w/lab1/database'
+    output_path = 'C:/uci/p121w/lab1/figs'
     entries = os.listdir(data_path)
     entires_int = [int(entry) for entry in entries]
     entires_int.sort()
@@ -23,6 +23,9 @@ def main()->None:
         plt.xlabel('mass (GeV)')
         plt.ylabel('entries/bin')
         plt.title(f'Invariant Mass Distribution for {entry} GeV')
+        plt.legend(loc = 'upper right', title_fontsize = 'large',
+                   fontsize = 'medium')
+
         plt.savefig(os.path.join(output_path, f'{entry}_fig.png'))
         plt.close()
     
